@@ -1,17 +1,19 @@
-# Translations template for ckanext-pages.
+# French translations for ckanext-pages.
 # Copyright (C) 2016 ORGANIZATION
-# This file is distributed under the same license as the ckanext-pages project.
+# This file is distributed under the same license as the ckanext-pages
+# project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ckanext-pages 0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2016-12-22 18:51+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2020-07-07 17:05-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -113,8 +115,8 @@ msgstr ""
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base.html:18
 msgid ""
-" <p>Pages are are simple way to add extra pages to your ckan instance. You "
-"can assign an order to them.</p> "
+" <p>Pages are are simple way to add extra pages to your ckan instance. "
+"You can assign an order to them.</p> "
 msgstr ""
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/base_form.html:40
@@ -273,10 +275,11 @@ msgstr ""
 msgid "There are currently no pages here"
 msgstr ""
 
-
 #: ckanext/pages/theme/templates_main/ckanext_pages/snippets/sidebar.html:8
-msgid ""
-"This page manages a collection of open-source artificial intelligence and machine learning models"
-"that can be used for your autonomous vehicle projects.  Models include basic machine learning libraries"
-"to more complex AV-specific models for late or object detection.  See something missing?  Let us know at"
+msgid "This page manages a collection of open-source artificial intelligence and machine learning models that can be used for your autonomous vehicle projects.  Models include basic machine learning libraries to more complex AV-specific models for late or object detection.  See something missing?  Let us know at"
 msgstr ""
+"Cette page gère une collection de modèles open source d'intelligence artificielle et d'apprentissage "
+"automatique pouvant être utilisés pour vos projets de véhicules autonomes. Les modèles incluent tout, "
+"des bibliothèques d'apprentissage automatique de base aux modèles AV plus complexes pour la détection "
+"de voies ou d'objets. Vous voyez quelque chose qui manque? Faites-le nous savoir à"
+
