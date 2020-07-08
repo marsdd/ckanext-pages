@@ -4,6 +4,7 @@ import urllib
 from pylons import config
 import ckan.plugins.toolkit as toolkit
 ignore_missing = toolkit.get_validator('ignore_missing')
+from ckan.lib.i18n import get_lang
 
 import ckan.plugins as p
 import ckan.lib.helpers as h
@@ -46,7 +47,10 @@ def build_pages_nav_main(*args):
     output = h.build_nav_main(*new_args)
 
     # do not display any private datasets in menu even for sysadmins
-    pages_list = toolkit.get_action('ckanext_pages_list')(None, {'order': True, 'private': False})
+    pages_list = toolkit.get_action('ckanext_pages_list')(None,
+                                                          {'order': True,
+                                                           'private': False,
+                                                           'lang': get_lang()})
 
     page_name = ''
 
