@@ -1,5 +1,6 @@
 import ckan.plugins as p
 import ckan.lib.helpers as helpers
+from ckan.lib.i18n import get_lang
 from pylons import config
 
 _ = p.toolkit._
@@ -340,7 +341,7 @@ class PagesController(p.toolkit.BaseController):
         return self._pages_list_pages('page')
 
     def _pages_list_pages(self, page_type):
-        data_dict={'org_id': None, 'page_type': page_type}
+        data_dict={'org_id': None, 'page_type': page_type, 'lang': get_lang()}
         if page_type == 'blog':
             data_dict['order_publish_date'] = True
         p.toolkit.c.pages_dict = p.toolkit.get_action('ckanext_pages_list')(
@@ -389,7 +390,9 @@ class PagesController(p.toolkit.BaseController):
                        'page': page,}
         )
         if _page is None:
-            _page = {}
+            _page = {
+                'lang': get_lang()
+            }
 
         if p.toolkit.request.method == 'POST' and not data:
             data = dict(p.toolkit.request.POST)
@@ -400,6 +403,7 @@ class PagesController(p.toolkit.BaseController):
             _page['page'] = page
             _page['page_type'] = 'page' if page_type == 'pages' else page_type
 
+
             try:
                 junk = p.toolkit.get_action('ckanext_pages_update')(
                     data_dict=_page
@@ -409,7 +413,8 @@ class PagesController(p.toolkit.BaseController):
                 error_summary = e.error_summary
                 return self.pages_edit('/' + page, data,
                                        errors, error_summary, page_type=page_type)
-            p.toolkit.redirect_to('%s_show' % page_type, page='/' + _page['name'])
+            p.toolkit.redirect_to('%s_show' % page_type, page='/' + _page[
+                'name'], )
 
         try:
             p.toolkit.check_access('ckanext_pages_update', {'user': p.toolkit.c.user or p.toolkit.c.author})

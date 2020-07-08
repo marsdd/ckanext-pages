@@ -49,12 +49,15 @@ def _pages_list(context, data_dict):
     order_publish_date = data_dict.get('order_publish_date')
     page_type = data_dict.get('page_type')
     private = data_dict.get('private', True)
+    lang = data_dict.get('lang')
     if ordered:
         search['order'] = True
     if page_type:
         search['page_type'] = page_type
     if order_publish_date:
         search['order_publish_date'] = True
+    if lang:
+        search['lang'] = lang
     if not org_id:
         search['group_id'] = None
         try:
@@ -109,6 +112,7 @@ def _pages_update(context, data_dict):
         db.init_db(context['model'])
     org_id = data_dict.get('org_id')
     page = data_dict.get('page')
+    lang = data_dict.get('lang')
     # we need the page in the context for name validation
     context['page'] = page
     context['group_id'] = org_id
@@ -119,12 +123,12 @@ def _pages_update(context, data_dict):
     if errors:
         raise p.toolkit.ValidationError(errors)
 
-    out = db.Page.get(group_id=org_id, name=page)
+    out = db.Page.get(group_id=org_id, name=page, lang=lang)
     if not out:
         out = db.Page()
         out.group_id = org_id
         out.name = page
-    items = ['title', 'content', 'name', 'private',
+    items = ['title', 'content', 'sidebar_content', 'name', 'private', 'lang',
              'order', 'page_type', 'publish_date']
     for item in items:
         setattr(out, item, data.get(item,'page' if item =='page_type' else None)) #backward compatible with older version where page_type does not exist
