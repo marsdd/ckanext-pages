@@ -34,7 +34,8 @@ def _pages_show(context, data_dict):
         db.init_db(context['model'])
     org_id = data_dict.get('org_id')
     page = data_dict.get('page')
-    out = db.Page.get(group_id=org_id, name=page)
+    lang = data_dict.get('lang')
+    out = db.Page.get(group_id=org_id, name=page, lang=lang)
     if out:
         out = db.table_dictize(out, context)
     return out
@@ -100,7 +101,8 @@ def _pages_delete(context, data_dict):
         db.init_db(context['model'])
     org_id = data_dict.get('org_id')
     page = data_dict.get('page')
-    out = db.Page.get(group_id=org_id, name=page)
+    lang = data_dict.get('lang')
+    out = db.Page.get(group_id=org_id, name=page, lang=lang)
     if out:
         session = context['session']
         session.delete(out)

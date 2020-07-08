@@ -32,7 +32,8 @@ class PagesController(p.toolkit.BaseController):
             return self._org_list_pages(id, org_dict)
         _page = p.toolkit.get_action('ckanext_pages_show')(
             data_dict={'org_id': p.toolkit.c.group_dict['id'],
-                       'page': page,}
+                       'page': page,
+                       'lang': get_lang()}
         )
         if _page is None:
             return self._org_list_pages(id, org_dict)
@@ -63,7 +64,8 @@ class PagesController(p.toolkit.BaseController):
             if p.toolkit.request.method == 'POST':
                 action = p.toolkit.get_action('ckanext_org_pages_delete')
                 action({}, {'org_id': p.toolkit.c.group_dict['id'],
-                       'page': page})
+                       'page': page,
+                       'lang': get_lang()})
                 p.toolkit.redirect_to('organization_pages_index', id=id)
             else:
                 p.toolkit.abort(404, _('Page Not Found'))
@@ -85,7 +87,8 @@ class PagesController(p.toolkit.BaseController):
             page = page[1:]
         _page = p.toolkit.get_action('ckanext_pages_show')(
             data_dict={'org_id': p.toolkit.c.group_dict['id'],
-                       'page': page}
+                       'page': page,
+                       'lang': get_lang()}
         )
         if _page is None:
             _page = {}
@@ -150,7 +153,8 @@ class PagesController(p.toolkit.BaseController):
             return self._group_list_pages(id, group_dict)
         _page = p.toolkit.get_action('ckanext_pages_show')(
             data_dict={'org_id': p.toolkit.c.group_dict['id'],
-                       'page': page}
+                       'page': page,
+                       'lang': get_lang()}
         )
         if _page is None:
             return self._group_list_pages(id, group_dict)
@@ -172,7 +176,8 @@ class PagesController(p.toolkit.BaseController):
             if p.toolkit.request.method == 'POST':
                 action = p.toolkit.get_action('ckanext_group_pages_delete')
                 action({}, {'org_id': p.toolkit.c.group_dict['id'],
-                       'page': page})
+                       'page': page,
+                       'lang': get_lang()})
                 p.toolkit.redirect_to('group_pages_index', id=id)
             else:
                 p.toolkit.abort(404, _('Page Not Found'))
@@ -205,7 +210,8 @@ class PagesController(p.toolkit.BaseController):
             page = page[1:]
         _page = p.toolkit.get_action('ckanext_pages_show')(
             data_dict={'org_id': p.toolkit.c.group_dict['id'],
-                       'page': page}
+                       'page': page,
+                       'lang': get_lang()}
         )
         if _page is None:
             _page = {}
@@ -328,7 +334,8 @@ class PagesController(p.toolkit.BaseController):
             return self._pages_list_pages(page_type)
         _page = p.toolkit.get_action('ckanext_pages_show')(
             data_dict={'org_id': None,
-                       'page': page}
+                       'page': page,
+                       'lang': get_lang()}
         )
         if _page is None:
             return self._pages_list_pages(page_type)
@@ -368,7 +375,8 @@ class PagesController(p.toolkit.BaseController):
 
         try:
             if p.toolkit.request.method == 'POST':
-                p.toolkit.get_action('ckanext_pages_delete')({}, {'page': page})
+                p.toolkit.get_action('ckanext_pages_delete')({}, {'page': page,
+                       'lang': get_lang()})
                 p.toolkit.redirect_to('%s_index' % page_type)
             else:
                 p.toolkit.abort(404, _('Page Not Found'))
@@ -376,7 +384,8 @@ class PagesController(p.toolkit.BaseController):
             p.toolkit.abort(401, _('Unauthorized to delete page'))
         except p.toolkit.ObjectNotFound:
             p.toolkit.abort(404, _('Group not found'))
-        return p.toolkit.render('ckanext_pages/confirm_delete.html', {'page': page})
+        return p.toolkit.render('ckanext_pages/confirm_delete.html', {'page': page,
+                       'lang': get_lang()})
 
 
     def blog_edit(self, page=None, data=None, errors=None, error_summary=None):
@@ -387,7 +396,8 @@ class PagesController(p.toolkit.BaseController):
             page = page[1:]
         _page = p.toolkit.get_action('ckanext_pages_show')(
             data_dict={'org_id': None,
-                       'page': page,}
+                       'page': page,
+                       'lang': get_lang()}
         )
         if _page is None:
             _page = {
