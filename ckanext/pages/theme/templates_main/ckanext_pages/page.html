@@ -18,3 +18,21 @@
 {% block secondary_content %}
   {% snippet "ckanext_pages/snippets/sidebar.html" %}
 {% endblock %}
+
+{% block primary_content_inner %}
+  {% if c.page.content %}
+    <div class="ckanext-pages-content">
+      {% set editor = h.get_wysiwyg_editor() %}
+      <!-- editor set to "{{ editor }}"-->
+      {% if editor %}
+        <div>
+            {{c.page.content|safe}}
+        </div>
+      {% else %}
+        {{ h.render_content(c.page.content) }}
+      {% endif %}
+    </div>
+  {% else %}
+    <p class="empty">{{ _('This page currently has no content') }}</p>
+  {% endif %}
+{% endblock %}
