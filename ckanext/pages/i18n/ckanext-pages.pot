@@ -100,6 +100,11 @@ msgstr ""
 msgid "Pages"
 msgstr ""
 
+#: ckanext/pages/theme/templates_main/header.html:5
+#: ckanext/pages/theme/templates_main/header.html:6
+msgid "Manage Pages"
+msgstr ""
+
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:34
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_edit_base.html:9
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_list.html:10
@@ -272,4 +277,3 @@ msgstr ""
 #: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:82
 msgid "There are currently no pages here"
 msgstr ""
-

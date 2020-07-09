@@ -10,3 +10,5 @@ dist/
 distribute-*
 /CHANGELOG.html
 /README.html
+/.idea/
+/venv/

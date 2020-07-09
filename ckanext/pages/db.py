@@ -47,11 +47,12 @@ def init_db(model):
     # We will just try to create the table.  If it already exists we get an
     # error but we can just skip it and carry on.
     sql = '''
-                CREATE TABLE ckanext_pages (
+                CREATE TABLE if not exists ckanext_pages (
                     id text NOT NULL,
                     title text,
                     name text,
                     content text,
+                    sidebar_content text,
                     lang text,
                     "order" text,
                     private boolean,
@@ -100,6 +101,7 @@ def init_db(model):
         sa.Column('title', types.UnicodeText, default=u''),
         sa.Column('name', types.UnicodeText, default=u''),
         sa.Column('content', types.UnicodeText, default=u''),
+        sa.Column('sidebar_content', types.UnicodeText, default=u''),
         sa.Column('lang', types.UnicodeText, default=u''),
         sa.Column('order', types.UnicodeText, default=u''),
         sa.Column('private',types.Boolean,default=True),
