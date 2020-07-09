@@ -100,6 +100,11 @@ msgstr ""
 msgid "Pages"
 msgstr ""
 
+#: ckanext/pages/theme/templates_main/header.html:5
+#: ckanext/pages/theme/templates_main/header.html:6
+msgid "Manage Pages"
+msgstr ""
+
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog.html:34
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_edit_base.html:9
 #: ckanext/pages/theme/templates_main/ckanext_pages/blog_list.html:10
@@ -271,12 +276,4 @@ msgstr ""
 
 #: ckanext/pages/theme/templates_main/ckanext_pages/snippets/pages_list.html:82
 msgid "There are currently no pages here"
-msgstr ""
-
-
-#: ckanext/pages/theme/templates_main/ckanext_pages/snippets/sidebar.html:8
-msgid ""
-"This page manages a collection of open-source artificial intelligence and machine learning models"
-"that can be used for your autonomous vehicle projects.  Models include basic machine learning libraries"
-"to more complex AV-specific models for late or object detection.  See something missing?  Let us know at"
 msgstr ""
